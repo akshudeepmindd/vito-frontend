@@ -56,7 +56,7 @@ const AppAchieve = () => {
           </p>
           <div className="text__upper">
             <Row>
-              <Col md={4}>
+              <Col md={4} sm={12}>
                 <Row>
                   <Col md={3}>icon</Col>
                   <Col md={3}>
@@ -65,7 +65,7 @@ const AppAchieve = () => {
                   </Col>
                 </Row>
               </Col>
-              <Col md={4}>
+              <Col md={4} sm={12}>
                 <Row>
                   <Col md={3}>icon</Col>
                   <Col md={3}>
@@ -74,7 +74,7 @@ const AppAchieve = () => {
                   </Col>
                 </Row>
               </Col>
-              <Col md={4}>
+              <Col md={4} sm={12}>
                 <Row>
                   <Col md={3}>icon</Col>
                   <Col md={3}>
@@ -89,7 +89,7 @@ const AppAchieve = () => {
       </div>
       <div className="slider__stream">
         <Row>
-          <Col md={6}>
+          <Col md={6} sm={12}>
             <img src="http://academy.startupdigitalnetwork.com/wp-content/uploads/2019/10/image-testimonial-min.png"></img>
           </Col>
           <Col sm={6}>
@@ -109,7 +109,7 @@ const AppAchieve = () => {
           </Col>
         </Row>
       </div>
-      <div className="">
+      <div className="d__none">
         <Container>
           <Row>
             <Col className="paddingLeft">
@@ -160,10 +160,10 @@ const AppAchieve = () => {
                 content that goes beyond the fundamentals to teach you practical
                 skills you can apply immediately
               </p>
-              <Button variant="warning">Free Trial</Button>{" "}
+              <Button variant="warning" className="wng_btn">Free Trial</Button>{" "}
             </Col>
             <Col md={6}>
-              <img src="https://image.shutterstock.com/image-photo/image-business-partners-discussing-documents-260nw-125338145.jpg"></img>
+              <img src="https://image.shutterstock.com/image-photo/image-business-partners-discussing-documents-260nw-125338145.jpg" style={{width:"100%"}}></img>
             </Col>
           </Row>
         </Container>

@@ -6,8 +6,8 @@ const AppLearn = () => {
       <div className="learn-section">
         <Container>
           <Row>
-            <Col md={4}>
-              <img src="http://academy.startupdigitalnetwork.com/wp-content/uploads/2019/10/image-cta-min-1.png"></img>
+            <Col md={4} sm={12}>
+              <img src="http://academy.startupdigitalnetwork.com/wp-content/uploads/2019/10/image-cta-min-1.png"  style={{ width: "100%" }}></img>
             </Col>
             <Col md={4}>
               <div className="top_area">
@@ -15,9 +15,11 @@ const AppLearn = () => {
                 <p>Answer a few questions for your top picks</p>
               </div>
             </Col>
-            <Col md={4}>
+            <Col md={4} sm={12}>
               <div className="right_area">
-                <Button variant="primary">Primary</Button>{" "}
+                <Button variant="primary">Join For F
+                
+                ree</Button>{" "}
               </div>
             </Col>
           </Row>

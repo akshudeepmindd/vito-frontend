@@ -21,21 +21,21 @@ const Footer = () => {
         <div className="footer__content">
           <div className="info__top">
             <Row>
-              <Col md={3}>
+              <Col md={3} xs={6} className="border-right height5">
                 <span className="d-block text-grey mt-4">+91 2233445544</span>
                 <span className="text-grey">+91 2233445544</span>
               </Col>
-              <Col md={3}>
+              <Col md={3} xs={6} className="border-right height5">
                 {" "}
                 <span className="d-block text-grey mt-4">A26BT5 BUILDING</span>
                 <span className="text-grey">LONDON, ENGLAND</span>
               </Col>
-              <Col md={3}>
+              <Col md={3} xs={6} className="border-right height5">
                 {" "}
                 <span className="d-block text-grey mt-4">SUPPORT</span>
                 <span className="text-grey">@CRYPTOSCHOOL.COM</span>
               </Col>
-              <Col md={3}>
+              <Col md={3} xs={6}>
                 {" "}
                 <span className="d-block text-grey mt-4">
                   DAILY: 10:00 AM – 5:00 PM
@@ -47,26 +47,26 @@ const Footer = () => {
           <Container>
             <Row>
               <Col md={3}>
-                  <div className="inner__space">
-                <h4>Eduma Crypto</h4>
+                <div className="inner__space">
+                  <h4>Eduma Crypto</h4>
 
-                <ListGroup horizontal>
-                  <ListGroup.Item>
-                    <img src="https://static.mastrolinks.com/Assets/Icons/Twitter.png"></img>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <img src="https://static.mastrolinks.com/Assets/Icons/facebook.png"></img>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <img src="https://static.mastrolinks.com/Assets/Icons/linkedin.png"></img>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <img src="https://static.mastrolinks.com/Assets/Icons/linkedin.png"></img>
-                  </ListGroup.Item>
-                </ListGroup>
+                  <ListGroup horizontal>
+                    <ListGroup.Item>
+                      <img src="https://static.mastrolinks.com/Assets/Icons/Twitter.png"></img>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <img src="https://static.mastrolinks.com/Assets/Icons/facebook.png"></img>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <img src="https://static.mastrolinks.com/Assets/Icons/linkedin.png"></img>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <img src="https://static.mastrolinks.com/Assets/Icons/linkedin.png"></img>
+                    </ListGroup.Item>
+                  </ListGroup>
                 </div>
               </Col>
-              <Col md={9}>
+              <Col md={9} className="footer__links">
                 <Row>
                   <Col md={3}>
                     <ListGroup>

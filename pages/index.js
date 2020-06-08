@@ -7,19 +7,22 @@ import TopCourse from "../components/topcourse";
 import SkillInstructr from "../components/skillinstructr";
 import Achivement from "../components/achivement";
 import Footer from "../components/footer";
+import Cards from "../components/cards";
 
 import "../static/scss/index.sass";
 const Landing = () => {
   return (
     <>
-      <Layout title="Home" />
+      <Layout title="Home" >
       <Banner />
+      <Cards />
       <BlockChain />
       <LearningSection />
       <TopCourse />
       <SkillInstructr />
       <Achivement />
-      <Footer />
+      </Layout>
+      
     </>
   );
 };
