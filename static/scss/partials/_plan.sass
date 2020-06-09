@@ -1,11 +1,18 @@
 .black__banner
     background-color: #151515
     height: 50%
+    padding-top: 12%
+    padding-bottom: 6%
     h1
         color: #fff
         text-transform: uppercase
         font-weight: bold
-        padding: 10% 2%
+        &::before
+            border: 1px solid yellow
+            content: ""
+            margin-left: 3rem
+            margin-right: 1rem
+
 .listing
     .list-group-horizontal
         border-bottom: 1px solid #ccc
@@ -13,6 +20,23 @@
             border: 0
             padding-left: 0
             font-size: 12px
+            margin-bottom: 0
 .list-price
     font-size: 24px
     font-weight: normal
+.table-bordered
+    margin-top: 3rem
+// .modal-content
+//     padding: 0% 30%
+.modal-title
+    margin: 0px auto
+    width: 100%
+.modal-body
+    margin: 0 auto
+    width: 48%
+.form-check-label
+    font-size: 12px
+.F14
+    font-size: 12px
+.large__button
+    width: 100%

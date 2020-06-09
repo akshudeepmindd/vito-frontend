@@ -7,7 +7,10 @@ const AppLearn = () => {
         <Container>
           <Row>
             <Col md={4} sm={12}>
-              <img src="http://academy.startupdigitalnetwork.com/wp-content/uploads/2019/10/image-cta-min-1.png"  style={{ width: "100%" }}></img>
+              <img
+                src="http://academy.startupdigitalnetwork.com/wp-content/uploads/2019/10/image-cta-min-1.png"
+                style={{ width: "100%" }}
+              ></img>
             </Col>
             <Col md={4}>
               <div className="top_area">
@@ -17,9 +20,7 @@ const AppLearn = () => {
             </Col>
             <Col md={4} sm={12}>
               <div className="right_area">
-                <Button variant="primary">Join For F
-                
-                ree</Button>{" "}
+                <Button variant="primary">Join For F ree</Button>{" "}
               </div>
             </Col>
           </Row>
@@ -34,7 +35,7 @@ const AppLearn = () => {
               </div>
             </Col>
             <Col md={9}>
-              <div class="mid__gap">
+              <div className="mid__gap">
                 <Button variant="outline-secondary">Backend</Button>{" "}
                 <Button variant="outline-secondary">Css</Button>{" "}
                 <Button variant="outline-secondary">Frontend</Button>{" "}

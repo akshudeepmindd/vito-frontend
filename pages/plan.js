@@ -15,7 +15,7 @@ const Plans = () => {
             <ListGroup.Item>Membership Account</ListGroup.Item>
             <ListGroup.Item>Membership Level</ListGroup.Item>
           </ListGroup>
-          <Table bordered hover>
+          <Table bordered hover responsive>
             <thead>
               <tr>
                 <th className="" style={{ width: "30%" }}></th>
@@ -39,7 +39,7 @@ const Plans = () => {
             </thead>
             <tbody>
               <tr>
-                <td>Number Of courses</td>
+                <td className="text-success">Number Of courses</td>
                 <td>5</td>
                 <td>O5</td>
                 <td>3</td>
