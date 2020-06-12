@@ -85,7 +85,7 @@ class NavTop extends Component {
                 <Nav.Link href="#pricing">Blog</Nav.Link>
 
                 <Nav.Link href="#pricing">Contact </Nav.Link>
-                <Nav.Link href="#pricing">PLans</Nav.Link>
+                <Nav.Link href="/plan">PLans</Nav.Link>
               </Nav>
 
               <Nav>

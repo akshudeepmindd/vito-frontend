@@ -1,8 +1,32 @@
-import React from "react";
+import React, {Component} from "react";
 import Layout from "../components/common/layout";
 import "../static/scss/index.sass";
+import { connect } from "react-redux";
 import { ListGroup, Container, Table, Button } from "react-bootstrap";
-const Plans = () => {
+import { PlaneList } from "../redux/actions/planActions"
+import { getCookie } from "../utils/cookies";
+import { Payment } from "./payment"
+
+
+
+class Plans extends Component {
+
+
+  async componentDidMount(){
+    const { PlaneList, plan } = this.props
+    let token = getCookie('token')
+    console.log(token,"tokenb")
+    let res = await PlaneList(token)
+    
+    console.log(res,"ressss")
+  }
+  // getCookie()
+
+
+
+render(){
+  const { plan } = this.props;
+  console.log(plan,"plan123")
   return (
     <Layout>
       <div className="black__banner">
@@ -18,24 +42,22 @@ const Plans = () => {
           <Table bordered hover responsive>
             <thead>
               <tr>
-                <th className="" style={{ width: "30%" }}></th>
+
+              <th className="" style={{ width: "30%" }}></th>
+                {plan?.map((item, key) =>{
+
+                return(
+                  <>
+                
                 <th className="" style={{ width: "12%" }}>
-                  <h6>BASIC</h6>
-                  <span class="list-price">5,000 per Month</span>
+                  <h6>{item.packageName}</h6>
+                  <span class="list-price">{item.cost} per Month</span>
                 </th>
-                <th className="" style={{ width: "12%" }}>
-                  <h6>STANDARD</h6>
-                  <span class="list-price"> 5,000 per Month</span>
-                </th>
-                <th className="" style={{ width: "12%" }}>
-                  <h6>PREMIUM</h6>
-                  <span class="list-price"> 5,000 per Month</span>
-                </th>
-                <th className="" style={{ width: "12%" }}>
-                  <h6>ENTERPRISE</h6>
-                  <span class="list-price"> 5,000 per Month</span>
-                </th>
-              </tr>
+</>
+                  )
+                })
+              }
+                </tr>
             </thead>
             <tbody>
               <tr>
@@ -148,19 +170,19 @@ const Plans = () => {
                 <td></td>
                 <td>
                   {" "}
-                  <Button variant="warning">GET IT NOW</Button>{" "}
+                  <Button variant="warning" href="/payment">GET IT NOW</Button>{" "}
                 </td>
                 <td>
                   {" "}
-                  <Button variant="warning">GET IT NOW</Button>{" "}
+                  <Button variant="warning" href="/payment">GET IT NOW</Button>{" "}
                 </td>
                 <td>
                   {" "}
-                  <Button variant="warning">GET IT NOW</Button>{" "}
+                  <Button variant="warning" href="/payment">GET IT NOW</Button>{" "}
                 </td>
                 <td>
                   {" "}
-                  <Button variant="warning">GET IT NOW</Button>{" "}
+                  <Button variant="warning" href="/payment">GET IT NOW</Button>{" "}
                 </td>
               </tr>
             </tbody>
@@ -170,5 +192,18 @@ const Plans = () => {
     </Layout>
   );
 };
+}
 
-export default Plans;
+const mapDispatchToProps = {
+  PlaneList
+}
+
+const mapStateToProps = state => ({
+  plan: state.plan.allPlan || [],
+
+});
+
+
+export default connect(mapStateToProps , mapDispatchToProps)(Plans);
+
+// export default Plans;
