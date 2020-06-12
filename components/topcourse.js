@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { Card, Button, Col, Row, ListGroup, Container } from "react-bootstrap";
+import { Card, Button, Col, Row, Container } from "react-bootstrap";
 const Course = () => {
   return (
     <>
       <div className="top__course">
-        <h4 className="text-center"> Browse Our Top Courses</h4>
+        <h4 className="text-center font-weight-bold">
+          {" "}
+          Browse Our Top Courses
+        </h4>
         <p className="text-center">
           Learn Blockchain – Blockchain Courses and Training - Success starts
           here
@@ -20,9 +23,7 @@ const Course = () => {
                 <Card.Body>
                   <Card.Title>Admin</Card.Title>
                   <Card.Text>Introduction LearnPress – LMS plugin</Card.Text>
-                  <Button variant="outline-secondary">
-                    Subscribe for free
-                  </Button>
+                  <Button variant="outline-secondary">Start Course</Button>
                 </Card.Body>
               </Card>
             </Col>
@@ -34,10 +35,8 @@ const Course = () => {
                 />
                 <Card.Body>
                   <Card.Title>Admin</Card.Title>
-                  <Card.Text>Introduction LearnPress – LMS plugin</Card.Text>
-                  <Button variant="outline-secondary">
-                    Subscribe for free
-                  </Button>
+                  <Card.Text>Become a PHP Master and Make Money Fast</Card.Text>
+                  <Button variant="outline-secondary">Start Course</Button>
                 </Card.Body>
               </Card>
             </Col>
@@ -49,10 +48,8 @@ const Course = () => {
                 />
                 <Card.Body>
                   <Card.Title>Admin</Card.Title>
-                  <Card.Text>Introduction LearnPress – LMS plugin</Card.Text>
-                  <Button variant="outline-secondary">
-                    Subscribe for free
-                  </Button>
+                  <Card.Text>Learning jQuery Mobile for Beginners</Card.Text>
+                  <Button variant="outline-secondary">Start Course</Button>
                 </Card.Body>
               </Card>
             </Col>
@@ -64,10 +61,8 @@ const Course = () => {
                 />
                 <Card.Body>
                   <Card.Title>Admin</Card.Title>
-                  <Card.Text>Introduction LearnPress – LMS plugin</Card.Text>
-                  <Button variant="outline-secondary">
-                    Subscribe for free
-                  </Button>
+                  <Card.Text>HTML5/CSS3 Essentials in 4-Hours</Card.Text>
+                  <Button variant="outline-secondary">Start Course</Button>
                 </Card.Body>
               </Card>
             </Col>
@@ -79,10 +74,8 @@ const Course = () => {
                 />
                 <Card.Body>
                   <Card.Title>Admin</Card.Title>
-                  <Card.Text>Introduction LearnPress – LMS plugin</Card.Text>
-                  <Button variant="outline-secondary">
-                    Subscribe for free
-                  </Button>
+                  <Card.Text>The Art of Black and White Photography</Card.Text>
+                  <Button variant="outline-secondary">Start Course</Button>
                 </Card.Body>
               </Card>
             </Col>
@@ -94,17 +87,17 @@ const Course = () => {
                 />
                 <Card.Body>
                   <Card.Title>Admin</Card.Title>
-                  <Card.Text>Introduction LearnPress – LMS plugin</Card.Text>
-                  <Button variant="outline-secondary">
-                    Subscribe for free
-                  </Button>
+                  <Card.Text>
+                    Introduction to networking for beginners
+                  </Card.Text>
+                  <Button variant="outline-secondary">Start Course</Button>
                 </Card.Body>
               </Card>
             </Col>
           </Row>
         </Container>
-       
-        <div class="text-center mt-4">
+
+        <div class="text-center mt-4 mb-4">
           <Button variant="warning">View All Courses</Button>{" "}
         </div>
       </div>

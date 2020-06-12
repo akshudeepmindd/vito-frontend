@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import {
-  Navbar,
-  Nav,
   Form,
   FormControl,
   Button,
   Container,
   Col,
-  Row,
-  Card,
-  Carousel,
+  Row
 } from "react-bootstrap";
 import Slider from "react-slick";
 const Service = () => {
@@ -60,7 +56,7 @@ const Service = () => {
         <Container>
           <Row>
             <Col md={4} sm={12}>
-              <h2>Our Skilled Instructors</h2>
+              <h3 className="font-weight-bold">Our Skilled Instructors</h3>
               <div class="portfolio__gap"></div>
               <span className="text__ton">
                 Gentium a well crafted, creative and modern designed Digital &

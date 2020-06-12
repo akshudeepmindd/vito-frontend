@@ -1,9 +1,10 @@
 import React, { useState, Component } from "react";
 import { Navbar, Nav, Button, NavDropdown } from "react-bootstrap";
 import ModalComponent from "../components/modal";
+import SignupComponent from "../components/signupmodal";
 
 class NavTop extends Component {
-  state = { className: "", showModal: false };
+  state = { className: "", showModal: false, formType: "" };
 
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
@@ -21,9 +22,10 @@ class NavTop extends Component {
     }
   };
 
-  handleShow = () => {
+  handleShow = (type) => {
     this.setState({
       showModal: !this.state.showModal,
+      formType: type,
     });
   };
 
@@ -85,20 +87,28 @@ class NavTop extends Component {
                 <Nav.Link href="#pricing">Blog</Nav.Link>
 
                 <Nav.Link href="#pricing">Contact </Nav.Link>
-                <Nav.Link href="#pricing">PLans</Nav.Link>
+                <Nav.Link href="/plan">PLans</Nav.Link>
               </Nav>
 
               <Nav>
-                <Nav.Link className="pt-3" href="">
+                <Nav.Link className="pt-3 right_border" href="">
                   Search Icon
                 </Nav.Link>
                 <Nav.Link className="">
-                  <Button variant="warning" onClick={this.handleShow}>
+                  <Button
+                    variant="warning"
+                    onClick={() => this.handleShow("signin")}
+                  >
                     Login
                   </Button>
                 </Nav.Link>
                 <Nav.Link href="">
-                  <Button variant="warning">Free Trial</Button>{" "}
+                  <Button
+                    variant="warning"
+                    onClick={() => this.handleShow("signup")}
+                  >
+                    Free Trial
+                  </Button>{" "}
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
@@ -107,6 +117,7 @@ class NavTop extends Component {
         <ModalComponent
           showModal={this.state.showModal}
           closeModal={this.handleShow}
+          formType={this.state.formType}
         />
       </>
     );

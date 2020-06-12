@@ -26,7 +26,7 @@ const CardSection = () => {
                       <ListGroup.Item>Become a better trader.</ListGroup.Item>
                     </ListGroup>
                   </Card.Text>
-                  <Button variant="outline-secondary">
+                  <Button className="mb-3 mt-3" variant="outline-secondary">
                     Subscribe for free
                   </Button>
                 </Card.Body>
@@ -51,8 +51,8 @@ const CardSection = () => {
                       <ListGroup.Item>Morbi leo risus</ListGroup.Item>
                     </ListGroup>
                   </Card.Text>
-                  <Button variant="outline-secondary">
-                    Subscribe for free
+                  <Button className="mb-3 mt-3" variant="outline-secondary">
+                    Explore Courses
                   </Button>
                 </Card.Body>
               </Card>
@@ -67,7 +67,7 @@ const CardSection = () => {
                     src="http://academy.startupdigitalnetwork.com/wp-content/uploads/2019/10/image-feature-3-min.png"
                     className="card__img"
                   />
-                  <Card.Title>Free Updates</Card.Title>
+                  <Card.Title>Premium</Card.Title>
                   <Card.Text>
                     <ListGroup>
                       <ListGroup.Item>Cras justo odio</ListGroup.Item>
@@ -75,8 +75,8 @@ const CardSection = () => {
                       <ListGroup.Item>Morbi leo risus</ListGroup.Item>
                     </ListGroup>
                   </Card.Text>
-                  <Button variant="outline-secondary">
-                    Subscribe for free
+                  <Button className="mb-3 mt-3" variant="outline-secondary">
+                    Premium Subscription
                   </Button>
                 </Card.Body>
               </Card>

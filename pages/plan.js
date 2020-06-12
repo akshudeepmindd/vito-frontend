@@ -1,7 +1,9 @@
 import React from "react";
 import Layout from "../components/common/layout";
+import Router from "next/router";
 import "../static/scss/index.sass";
 import { ListGroup, Container, Table, Button } from "react-bootstrap";
+
 const Plans = () => {
   return (
     <Layout>
@@ -15,24 +17,24 @@ const Plans = () => {
             <ListGroup.Item>Membership Account</ListGroup.Item>
             <ListGroup.Item>Membership Level</ListGroup.Item>
           </ListGroup>
-          <Table bordered hover responsive>
+          <Table bordered hover responsive className="table__Plan">
             <thead>
               <tr>
                 <th className="" style={{ width: "30%" }}></th>
                 <th className="" style={{ width: "12%" }}>
-                  <h6>BASIC</h6>
+                  <h6 className="font-weight-bold">BASIC</h6>
                   <span class="list-price">5,000 per Month</span>
                 </th>
                 <th className="" style={{ width: "12%" }}>
-                  <h6>STANDARD</h6>
+                  <h6 className="font-weight-bold">STANDARD</h6>
                   <span class="list-price"> 5,000 per Month</span>
                 </th>
                 <th className="" style={{ width: "12%" }}>
-                  <h6>PREMIUM</h6>
+                  <h6 className="font-weight-bold">PREMIUM</h6>
                   <span class="list-price"> 5,000 per Month</span>
                 </th>
                 <th className="" style={{ width: "12%" }}>
-                  <h6>ENTERPRISE</h6>
+                  <h6 className="font-weight-bold">ENTERPRISE</h6>
                   <span class="list-price"> 5,000 per Month</span>
                 </th>
               </tr>
@@ -160,7 +162,12 @@ const Plans = () => {
                 </td>
                 <td>
                   {" "}
-                  <Button variant="warning">GET IT NOW</Button>{" "}
+                  <Button
+                    variant="warning"
+                    onClick={() => Router.push("/checkout")}
+                  >
+                    GET IT NOW
+                  </Button>{" "}
                 </td>
               </tr>
             </tbody>

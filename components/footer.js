@@ -1,17 +1,5 @@
 import React, { useState } from "react";
-import {
-  Navbar,
-  Nav,
-  Button,
-  NavDropdown,
-  Form,
-  FormControl,
-  Row,
-  Col,
-  ListGroup,
-  Card,
-  Container,
-} from "react-bootstrap";
+import { Button, Row, Col, ListGroup, Container } from "react-bootstrap";
 
 const Footer = () => {
   return (
@@ -48,7 +36,9 @@ const Footer = () => {
             <Row>
               <Col md={3}>
                 <div className="inner__space">
-                  <h4>Eduma Crypto</h4>
+                  <h4>
+                    Eduma <span className="text-warning">Crypto</span>
+                  </h4>
 
                   <ListGroup horizontal>
                     <ListGroup.Item>
@@ -116,8 +106,9 @@ const Footer = () => {
         </div>
       </div>
       <div className="cp-text ">
-        <p class="text-center">
-          Education WordPress Theme by ThimPress. Powered by WordPress.
+        <p className="text-center">
+          <span className="text-warning">Education WordPress Theme</span> by{" "}
+          <span className="text-warning">ThimPress</span>. Powered by WordPress.
         </p>
       </div>
     </>

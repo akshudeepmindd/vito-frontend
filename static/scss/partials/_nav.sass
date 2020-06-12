@@ -10,6 +10,7 @@
     font-weight: bold
     h1
         font-size: 60px
+        font-weight: bold
 
     p
         font-size: 20px
@@ -56,5 +57,9 @@
             .nav-link
                 color: #000 !important
 
-.abc
-    background-color: none
+.right_border
+    &:after
+        content: ""
+        border-right: 1px solid #cccccc
+        height: 1px
+        padding-left: 1rem

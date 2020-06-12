@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Button, Col, Row, ListGroup, Container } from "react-bootstrap";
+import { Button, Col, Row, Container } from "react-bootstrap";
 import Slider from "react-slick";
 const AppAchieve = () => {
   const settings = {
@@ -102,7 +102,7 @@ const AppAchieve = () => {
                 facilisis. Maecenas vitae libero vitae sapien pellentesque
                 fringilla.
               </p>
-              <h2>Manual</h2>
+              <h5 className="font-weight-bold">Manual</h5>
               <p>Designer</p>
               {/* </Slider> */}
             </div>
@@ -153,17 +153,24 @@ const AppAchieve = () => {
         <Container>
           <Row>
             <Col md={6} className="text-right">
-              <h3>Learn what really matters and advance your career</h3>
-              <p>
+              <h3 className="font-weight-bold">
+                Learn what really matters and advance your career
+              </h3>
+              <p className="text-muted">
                 With Blockgeeks, you’ll have blockchain courses authored by
                 leading experts at your fingertips. It’s relevant, in-depth
                 content that goes beyond the fundamentals to teach you practical
                 skills you can apply immediately
               </p>
-              <Button variant="warning" className="wng_btn">Free Trial</Button>{" "}
+              <Button variant="warning" className="wng_btn">
+                Start Your Free Trial
+              </Button>{" "}
             </Col>
             <Col md={6}>
-              <img src="https://image.shutterstock.com/image-photo/image-business-partners-discussing-documents-260nw-125338145.jpg" style={{width:"100%"}}></img>
+              <img
+                src="https://image.shutterstock.com/image-photo/image-business-partners-discussing-documents-260nw-125338145.jpg"
+                style={{ width: "100%" }}
+              ></img>
             </Col>
           </Row>
         </Container>

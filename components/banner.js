@@ -1,16 +1,5 @@
 import React, { useState } from "react";
-import {
-  Navbar,
-  Nav,
-  Button,
-  NavDropdown,
-  Form,
-  FormControl,
-  Row,
-  Col,
-  Card,
-  ListGroup,
-} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 const Banner = () => {
   return (
     <>
@@ -21,10 +10,8 @@ const Banner = () => {
             This trading course is the Trade use to learn improve results. the
             Trade use to learn improve r
           </p>
-          <Button variant="warning">Start your 7 day free trial
-          </Button>{" "}
+          <Button variant="warning">Start your 7 day free trial</Button>{" "}
         </div>
-        
       </div>
 
       <div className="clearfix"></div>
