@@ -24,8 +24,5 @@ const ModalComponent = ({ showModal, handleClose, closeModal, formType }) => {
 }
 
 
-const mapDispatchToProps = {
-  UserLogin
-}
 
-export default connect(null, mapDispatchToProps)(ModalComponent);
+export default ModalComponent;

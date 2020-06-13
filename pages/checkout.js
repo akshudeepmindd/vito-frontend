@@ -1,8 +1,42 @@
-import React from "react";
+import React, { Component } from "react";
 import Layout from "../components/common/layout";
 import "../static/scss/index.sass";
 import { ListGroup, Container, Table, Button, Form } from "react-bootstrap";
-const Checkout = () => {
+import { createRef } from "react";
+
+class Checkout extends Component{
+  constructor(props){
+    super(props)
+    this.payref = createRef()
+  }
+
+
+  componentDidMount(){
+    paypal.Buttons({
+
+        // Set up the transaction
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '500'
+                    }
+                }]
+            });
+        },
+
+        // Finalize the transaction
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                // Show a success message to the buyer
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+            });
+        }
+
+
+    }).render(this.payref.current);
+}
+  render(){
   return (
     <Layout>
       <div className="black__banner">
@@ -118,13 +152,13 @@ const Checkout = () => {
             ></img>
           </div>
           <div className="text-center paypal_checkout">
-            {" "}
-            <img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"></img>
+            <div ref={this.payref} style={{ width: "2rem", paddingLeft: "1rem", margin:'0 auto' }}></div>
           </div>
         </Container>
       </div>
     </Layout>
   );
+  }
 };
 
 export default Checkout;

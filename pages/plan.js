@@ -171,15 +171,15 @@ render(){
                 <td></td>
                 <td>
                   {" "}
-                  <Button variant="warning" href="/payment">GET IT NOW</Button>{" "}
+                  <Button variant="warning" onClick={() => Router.push("/checkout")}>GET IT NOW</Button>{" "}
                 </td>
                 <td>
                   {" "}
-                  <Button variant="warning" href="/payment">GET IT NOW</Button>{" "}
+                  <Button variant="warning" onClick={() => Router.push("/checkout")}>GET IT NOW</Button>{" "}
                 </td>
                 <td>
                   {" "}
-                  <Button variant="warning" href="/payment">GET IT NOW</Button>{" "}
+                  <Button variant="warning" onClick={() => Router.push("/checkout")}>GET IT NOW</Button>{" "}
                 </td>
                 <td>
                   {" "}
