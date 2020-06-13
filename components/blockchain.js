@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Button, Col, Row, ListGroup } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 const AppSection = () => {
   return (
     <>
@@ -10,7 +10,7 @@ const AppSection = () => {
             Blockchain demand is booming and the market is expected to grow at
             over 60% per year
           </h2>
-          <p>
+          <p className="text-muted">
             Learn Blockchain – Blockchain Courses and Training – Success starts
             here
           </p>
@@ -29,7 +29,7 @@ const AppSection = () => {
               <div className="">
                 <img
                   src="http://academy.startupdigitalnetwork.com/wp-content/uploads/2019/10/image-feature-4-min.png"
-                  style={{ marginBottom: "2rem",marginTop: "2rem" }}
+                  style={{ marginBottom: "2rem", marginTop: "2rem" }}
                 ></img>
                 <p className="font-weight-bold">
                   Manage conversations with leads and customers at scale

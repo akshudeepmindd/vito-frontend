@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Button, Col, Row, ListGroup, Container } from "react-bootstrap";
+import { Card, Button, Col, Row, Container } from "react-bootstrap";
 const AppLearn = () => {
   return (
     <>
@@ -7,20 +7,26 @@ const AppLearn = () => {
         <Container>
           <Row>
             <Col md={4} sm={12}>
-              <img
-                src="http://academy.startupdigitalnetwork.com/wp-content/uploads/2019/10/image-cta-min-1.png"
-                style={{ width: "100%" }}
-              ></img>
+              <div className="">
+                <img
+                  src="http://academy.startupdigitalnetwork.com/wp-content/uploads/2019/10/image-cta-min-1.png"
+                  style={{ width: "100%" }}
+                ></img>
+              </div>
             </Col>
             <Col md={4}>
               <div className="top_area">
-                <p>Limitless learning, more possibilities</p>
-                <p>Answer a few questions for your top picks</p>
+                <h5 className="font-weight-bold">
+                  Limitless learning, more possibilities
+                </h5>
+                <p className="text-muted">
+                  Answer a few questions for your top picks
+                </p>
               </div>
             </Col>
             <Col md={4} sm={12}>
               <div className="right_area">
-                <Button variant="primary">Join For F ree</Button>{" "}
+                <Button variant="primary">Join For Free</Button>{" "}
               </div>
             </Col>
           </Row>
@@ -31,7 +37,12 @@ const AppLearn = () => {
           <Row>
             <Col md={3}>
               <div className="section__gap">
-                <h3> Course Curricullam</h3>
+                <h3
+                  className="font-weight-bold"
+                >
+                  {" "}
+                  Course Curricullam
+                </h3>
               </div>
             </Col>
             <Col md={9}>

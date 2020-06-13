@@ -20,7 +20,11 @@
     "node-sass": "^4.13.1",
     "react": "16.13.0",
     "react-bootstrap": "^1.0.0-beta.17",
+<<<<<<< HEAD
     "react-cookie": "^4.0.3",
+=======
+    "react-router-dom": "^5.0.1",
+>>>>>>> origin/development
     "react-dom": "16.13.0",
     "react-paypal-button-v2": "^2.6.2",
     "react-paypal-express-checkout": "^1.0.5",

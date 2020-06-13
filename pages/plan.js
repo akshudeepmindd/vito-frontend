@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Layout from "../components/common/layout";
+import Router from "next/router";
 import "../static/scss/index.sass";
 import { connect } from "react-redux";
 import { ListGroup, Container, Table, Button } from "react-bootstrap";
@@ -39,7 +40,7 @@ render(){
             <ListGroup.Item>Membership Account</ListGroup.Item>
             <ListGroup.Item>Membership Level</ListGroup.Item>
           </ListGroup>
-          <Table bordered hover responsive>
+          <Table bordered hover responsive className="table__Plan">
             <thead>
               <tr>
 
@@ -182,7 +183,12 @@ render(){
                 </td>
                 <td>
                   {" "}
-                  <Button variant="warning" href="/payment">GET IT NOW</Button>{" "}
+                  <Button
+                    variant="warning"
+                    onClick={() => Router.push("/checkout")}
+                  >
+                    GET IT NOW
+                  </Button>{" "}
                 </td>
               </tr>
             </tbody>
