@@ -26,7 +26,6 @@ import { CookiesProvider } from "react-cookie";
         
       return (
           <CookiesProvider>
-            <Head > <script src="https://www.paypal.com/sdk/js?client-id=SB_CLIENT_ID"></script> </Head>
             <Component {...pageProps} />
             
           </CookiesProvider>

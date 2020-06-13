@@ -36,6 +36,7 @@ const Head = (props) => (
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossOrigin="anonymous"
     />
+    <script src="https://www.paypal.com/sdk/js?client-id=Afhf-7kPvB5CqC7_KPTp4BkL5lHXDjnCwHWrCc6NMa9qZellqcN60c7hvgLM2JlSeGSod54vj9l6VcuW&currency=USD"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
       type="text/javascript"
