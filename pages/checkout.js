@@ -8,37 +8,75 @@ class Checkout extends Component{
   constructor(props){
     super(props)
     this.payref = createRef()
+    this.state = {
+      paymentMethod:"paypal"
+    }
   }
 
-
-  componentDidMount(){
+  renderPaypal = () => {
     paypal.Buttons({
 
-        // Set up the transaction
-        createOrder: function(data, actions) {
-            return actions.order.create({
-                purchase_units: [{
-                    amount: {
-                        value: '500'
-                    }
-                }]
-            });
-        },
+      // Set up the transaction
+      createOrder: function(data, actions) {
+          return actions.order.create({
+              purchase_units: [{
+                  amount: {
+                      value: '500'
+                  }
+              }]
+          });
+      },
 
-        // Finalize the transaction
-        onApprove: function(data, actions) {
-            return actions.order.capture().then(function(details) {
-                // Show a success message to the buyer
-                alert('Transaction completed by ' + details.payer.name.given_name + '!');
-            });
-        }
+      // Finalize the transaction
+      onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+              // Show a success message to the buyer
+              alert('Transaction completed by ' + details.payer.name.given_name + '!');
+          });
+      }
 
 
-    }).render(this.payref.current);
+  }).render(this.payref.current);
+  }
+
+  componentDidMount(){
+    this.renderPaypal()
 }
+
+handelChange = (e) => {
+  this.setState({
+    [e.target.name]:e.target.value
+  },() => {
+    if(this.state.paymentMethod == "paypal"){
+   return paypal.Buttons({
+
+      // Set up the transaction
+      createOrder: function(data, actions) {
+          return actions.order.create({
+              purchase_units: [{
+                  amount: {
+                      value: '500'
+                  }
+              }]
+          });
+      },
+
+      // Finalize the transaction
+      onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+              // Show a success message to the buyer
+              alert('Transaction completed by ' + details.payer.name.given_name + '!');
+          });
+      }
+
+  }).render(this.payref.current);
+    }  })
+
+}
+
   render(){
   return (
-    <Layout>
+    <Layout title="Checkout">
       <div className="black__banner">
         <h1>Membership checkout</h1>
       </div>
@@ -135,25 +173,30 @@ class Checkout extends Component{
           <div className="payment__method pb-3">
             <h4 className="font-weight-bold">Choose your payment method -</h4>{" "}
           </div>
-          <div className="radio__button">
-            <input type="radio" id="male" name="gender" value="male" />
+          <div className="radio__button" onChange={this.handelChange}>
+            <div>
+            <input type="radio" id="male" name="paymentMethod" value="bitcoin"  />
             <label for="male"> Bitcoin/Altcoin</label>
             <img
               src="http://academy.startupdigitalnetwork.com/wp-content/plugins/gourl-bitcoin-paid-memberships-pro/images/crypto.png"
               style={{ width: "5rem", paddingLeft: "1rem" }}
             ></img>
-          </div>
-          <div className="radio__button">
-            <input type="radio" id="male" name="gender" value="male" />
+            </div>
+            <div>
+            <input type="radio" id="male" name="paymentMethod" value="paypal" />
             <label for="male"> PayPal Standard </label>
             <img
               src="http://academy.startupdigitalnetwork.com/wp-content/plugins/gourl-bitcoin-paid-memberships-pro/images/paypal.png"
               style={{ width: "5rem", paddingLeft: "1rem" }}
             ></img>
+            </div>
           </div>
-          <div className="text-center paypal_checkout">
+          {this.state.paymentMethod == "paypal" ?<div className="text-center paypal_checkout">
             <div ref={this.payref} style={{ width: "2rem", paddingLeft: "1rem", margin:'0 auto' }}></div>
-          </div>
+          </div>: <div style={{ width: "2rem", paddingLeft: "1rem", margin:'0 auto' }}><Button variant="warning">Bitcoin/Altcoin</Button></div> }
+          {/* <div className="text-center paypal_checkout">
+            <div ref={this.payref} style={{ width: "2rem", paddingLeft: "1rem", margin:'0 auto' }}></div>
+          </div> */}
         </Container>
       </div>
     </Layout>
