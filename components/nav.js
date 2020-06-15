@@ -13,7 +13,7 @@ class NavTop extends Component {
   handleScroll = () => {
     if (window.pageYOffset > 20) {
       if (!this.state.className) {
-        this.setState({ className: "white" });
+        this.setState({ className: "bgwhite" });
       }
     } else {
       if (this.state.className) {
@@ -92,7 +92,7 @@ class NavTop extends Component {
 
               <Nav>
                 <Nav.Link className="pt-3 right_border" href="">
-                  Search Icon
+                  <i class="fas fa-search"></i>
                 </Nav.Link>
                 <Nav.Link className="">
                   <Button
@@ -103,11 +103,12 @@ class NavTop extends Component {
                   </Button>
                 </Nav.Link>
                 <Nav.Link href="">
+                  
                   <Button
                     variant="warning"
                     onClick={() => this.handleShow("signup")}
                   >
-                    Free Trial
+                    Free Trial 
                   </Button>{" "}
                 </Nav.Link>
               </Nav>

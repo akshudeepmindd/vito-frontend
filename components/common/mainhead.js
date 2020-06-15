@@ -41,6 +41,10 @@ const Head = (props) => (
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
       type="text/javascript"
     ></script>
+    <script
+      src="https://kit.fontawesome.com/af801ed5a5.js"
+      crossorigin="anonymous"
+    ></script>
   </NextHead>
 );
 
