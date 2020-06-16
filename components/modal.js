@@ -6,10 +6,10 @@ const ModalComponent = ({ showModal, handleClose, closeModal, formType }) => {
   return (
     <Modal
       show={showModal}
-      onHide={handleClose}
+      onHide={closeModal}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
-      centered
+     
     >
       <Modal.Header closeButton>
         <Modal.Title className="text-center font-weight-bold">

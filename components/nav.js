@@ -12,13 +12,10 @@ class NavTop extends Component {
 
   handleScroll = () => {
     if (window.pageYOffset > 20) {
-      if (!this.state.className) {
         this.setState({ className: "bgwhite" });
-      }
-    } else {
-      if (this.state.className) {
-        this.setState({ className: "transparent" });
-      }
+    } 
+    if(window.pageYOffset <= 0){
+      this.setState({className: "transparent"})
     }
   };
 

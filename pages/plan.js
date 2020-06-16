@@ -9,19 +9,15 @@ import { getCookie } from "../utils/cookies";
 import { Payment } from "./payment";
 
 class Plans extends Component {
+  
   async componentDidMount() {
-    const { PlaneList, plan } = this.props;
-    let token = getCookie("token");
-    console.log(token, "tokenb");
-    let res = await PlaneList(token);
-
-    console.log(res, "ressss");
+    const { PlaneList } = this.props;
+    await PlaneList();
   }
   // getCookie()
 
   render() {
     const { plan } = this.props;
-    console.log(plan, "plan123");
     return (
       <Layout>
         <div className="black__banner">
@@ -41,14 +37,24 @@ class Plans extends Component {
                   {plan?.map((item, key) => {
                     return (
                       <>
-                        <th className="" style={{ width: "12%" }}>
+                        <th style={{ width: "12%" }}>
                           <h6>{item.packageName}</h6>
-                          <span class="list-price">{item.cost} per Month</span>
-                        </th>
+                          <span class="list-price">€{item.cost} per Month</span>
+                  
+            
+                    <Button
+                      variant="warning"
+                      onClick={() => Router.push(`/checkout?id=${item._id}`)}
+                      >
+                      GET IT NOW
+                    </Button>{" "}
+                      </th>
+        
                       </>
                     );
                   })}
                 </tr>
+                
               </thead>
               <tbody>
                 <tr>
@@ -292,45 +298,6 @@ class Plans extends Component {
                   </td>
                   <td>
                     <i class="fas fa-check"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td>
-                    {" "}
-                    <Button
-                      variant="warning"
-                      onClick={() => Router.push("/checkout")}
-                    >
-                      GET IT NOW
-                    </Button>{" "}
-                  </td>
-                  <td>
-                    {" "}
-                    <Button
-                      variant="warning"
-                      onClick={() => Router.push("/checkout")}
-                    >
-                      GET IT NOW
-                    </Button>{" "}
-                  </td>
-                  <td>
-                    {" "}
-                    <Button
-                      variant="warning"
-                      onClick={() => Router.push("/checkout")}
-                    >
-                      GET IT NOW
-                    </Button>{" "}
-                  </td>
-                  <td>
-                    {" "}
-                    <Button
-                      variant="warning"
-                      onClick={() => Router.push("/checkout")}
-                    >
-                      GET IT NOW
-                    </Button>{" "}
                   </td>
                 </tr>
               </tbody>

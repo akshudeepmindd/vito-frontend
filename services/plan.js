@@ -1,5 +1,3 @@
 import { client } from './config'
 
-export const Plan = (token) => client.get("api/package",{headers:{
-    "Authorization":token
-}})
+export const Plan = () => client.get("api/package")

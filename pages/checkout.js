@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import  Router  from "next/router"
 import Layout from "../components/common/layout";
 import { ListGroup, Container, Table, Button, Form } from "react-bootstrap";
 import { createRef } from "react";
 import "../static/scss/index.sass";
+import { connect } from "react-redux";
 
 class Checkout extends Component {
   constructor(props) {
@@ -10,59 +12,76 @@ class Checkout extends Component {
     this.payref = createRef();
     this.state = {
       paymentMethod: "",
+      pack: undefined
     };
   }
+  
+  async componentDidMount() {
+    let pack;
+    const { plan } = this.props;
+    const { id } = Router.query
+    pack = plan.find((item) => item._id == id)
 
-  renderPaypal = () => {
+    this.setState({pack})
+    
+  }
+
+
+  renderPaypal = async () => {
+
+    const packageCost = this.state.pack?.cost
+    
     paypal
-      .Buttons({
-        // Set up the transaction
-        createOrder: function (data, actions) {
-          return actions.order.create({
-            purchase_units: [
-              {
-                amount: {
-                  value: "500",
-                },
+    .Buttons({
+      // Set up the transaction
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: [
+            {
+              amount: {
+                value: packageCost,  
+                currency: "INR"
               },
-            ],
-          });
-        },
-        style: {
-          color: "gold",
-          shape: "pill",
-          size: "small",
-          label: "pay",
-          height: 34,
-        },
-        // Finalize the transaction
-        onApprove: function (data, actions) {
-          return actions.order.capture().then(function (details) {
-            // Show a success message to the buyer
-            alert(
-              "Transaction completed by " + details.payer.name.given_name + "!"
+            },
+          ],
+        });
+      },
+      style: {
+        color: "gold",
+        shape: "pill",
+        size: "small",
+        label: "pay",
+        height: 34,
+      },
+      // Finalize the transaction
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (details) {
+          // Show a success message to the buyer
+          alert(
+            "Transaction completed by " + details.payer.name.given_name + "!"
             );
           });
         },
       })
       .render(this.payref.current);
-  };
-
-  handelChange = (e) => {
-    this.setState(
-      {
-        [e.target.name]: e.target.value,
-      },
-      () => {
-        if (this.state.paymentMethod == "paypal") {
-          return this.renderPaypal();
+    };
+    
+    handelChange = (e) => {
+      this.setState(
+        {
+          [e.target.name]: e.target.value,
+        },
+        () => {
+          if (this.state.paymentMethod == "paypal") {
+            return this.renderPaypal();
+          }
         }
-      }
-    );
-  };
-
-  render() {
-    return (
+        );
+      };
+      
+      render() {
+        // console.log(this.state.pack?.packageName, "pack")
+        return (
       <Layout title="Checkout">
         <div className="black__banner">
           <h1>Membership checkout</h1>
@@ -85,14 +104,14 @@ class Checkout extends Component {
               <tbody>
                 <tr>
                   <td className="" style={{ width: "50%" }}>
-                    You have selected the <strong>Standard</strong> membership
+                    You have selected the <strong>{this.state.pack?.packageName}</strong> membership
                     level.
                   </td>
                 </tr>
                 <tr>
                   <td>
                     The price for membership is
-                    <strong> €100.00 per Month</strong>
+                    <strong> €{this.state.pack?.cost} per Month</strong>
                   </td>
                 </tr>
               </tbody>
@@ -211,7 +230,7 @@ class Checkout extends Component {
                 className="bitcoin__btn"
                 style={{ width: "2rem", margin: "0 auto" }}
               >
-                <Button variant="warning">SUBMIT AND CHECK OUT</Button>
+                <Button variant="warning">SUBMIT AND CHECKOUT »</Button>
               </div>
             )}
             {/* <div className="text-center paypal_checkout">
@@ -224,4 +243,8 @@ class Checkout extends Component {
   }
 }
 
-export default Checkout;
+const mapStateToProps = (state) => ({
+  plan: state.plan.allPlan || [],
+});
+
+export default connect(mapStateToProps, null)(Checkout);
