@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"
+import { toast } from "react-toastify"
+import { modalState } from "../redux/actions/modalActions"
 import { Button, Modal, Form, Row, Col } from "react-bootstrap";
 import { UserSignUp } from "../redux/actions/userActions"
+import { toastState } from "../redux/actions/toastActions";
+
 class Signup extends Component{
 
   state = {
@@ -31,6 +35,11 @@ class Signup extends Component{
       lastName
     }
     const User = await UserSignUp(params)
+    if(User.is_success){
+    await toast.success("Register Succfully.");
+    await this.props.modalState(null)
+    }
+    toast.error(User.message);
   }
   // ({ showModal, handleClose, closeModal }) => {
     render(){
@@ -69,7 +78,9 @@ class Signup extends Component{
 }
 
 const mapDispatchToProps = {
-  UserSignUp
+  UserSignUp,
+  modalState,
+  toastState
 }
 
 export default connect(null, mapDispatchToProps)(Signup)

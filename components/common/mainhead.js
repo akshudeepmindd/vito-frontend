@@ -1,6 +1,8 @@
 import React from "react";
 import NextHead from "next/head";
 import { string } from "prop-types";
+import "react-toastify/dist/ReactToastify.min.css";
+
 
 const Head = (props) => (
   <NextHead>

@@ -3,6 +3,9 @@ import { Form, Button, Col, Row } from "react-bootstrap";
 import { UserLogin } from "../redux/actions/userActions"
 import { connect } from "react-redux";
 import { setCookie } from "../utils/cookies";
+import { ToastContainer, toast } from "react-toastify"
+import { modalState } from "../redux/actions/modalActions"
+import { toastState } from "../redux/actions/toastActions";
 
 class SignIn extends Component {
   state = {
@@ -11,7 +14,6 @@ class SignIn extends Component {
   };
   
   onHandleChange = e => {
-    console.log(e, "login")
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -30,7 +32,10 @@ class SignIn extends Component {
     if(User.is_success){
       // const { message: token  } = User
       setCookie("token", User.token, { path: "/" });
+      await toast.success("Login Succfull.");
+      await this.props.modalState(null)
     }
+    toast.error(User.message);
     // await AuthService.storeToken(token, "/dashboard");
   }
   render(){
@@ -62,6 +67,7 @@ class SignIn extends Component {
             Submit
           </Button>
         </Form>
+
       </>
     );
   }
@@ -71,7 +77,9 @@ class SignIn extends Component {
 
 
 const mapDispatchToProps = {
-UserLogin
+UserLogin,
+modalState,
+toastState
 }
 
 export default connect(null, mapDispatchToProps)(SignIn)

@@ -8,6 +8,7 @@ import SkillInstructr from "../components/skillinstructr";
 import Achivement from "../components/achivement";
 import Footer from "../components/footer";
 import Cards from "../components/cards";
+import { ToastContainer } from 'react-toastify'
 
 import "../static/scss/index.sass";
 const Landing = () => {
@@ -22,6 +23,7 @@ const Landing = () => {
         <TopCourse />
         <SkillInstructr />
         <Achivement />
+        <ToastContainer />
       </Layout>
     </>
   );

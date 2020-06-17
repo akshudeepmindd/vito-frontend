@@ -1,7 +1,8 @@
-import React, { useState, Component } from "react";
+import React, { Component } from "react";
 import { Navbar, Nav, Button, NavDropdown } from "react-bootstrap";
 import ModalComponent from "../components/modal";
-import SignupComponent from "../components/signupmodal";
+import {connect} from 'react-redux'
+import {modalState} from "../redux/actions/modalActions"
 
 class NavTop extends Component {
   state = { className: "", showModal: false, formType: "" };
@@ -14,8 +15,8 @@ class NavTop extends Component {
     if (window.pageYOffset > 20) {
         this.setState({ className: "bgwhite" });
     } 
-    if(window.pageYOffset <= 0){
-      this.setState({className: "transparent"})
+    if (window.pageYOffset <= 0){
+        this.setState({className: "transparent"})
     }
   };
 
@@ -94,7 +95,7 @@ class NavTop extends Component {
                 <Nav.Link className="">
                   <Button
                     variant="warning"
-                    onClick={() => this.handleShow("signin")}
+                    onClick={() => this.props.modalState('signin')}
                   >
                     Login
                   </Button>
@@ -103,7 +104,7 @@ class NavTop extends Component {
                   
                   <Button
                     variant="warning"
-                    onClick={() => this.handleShow("signup")}
+                    onClick={() => this.props.modalState('signup')}
                   >
                     Free Trial 
                   </Button>{" "}
@@ -122,4 +123,9 @@ class NavTop extends Component {
   }
 }
 
-export default NavTop;
+const mapDispatchToProps = {
+  modalState
+}
+
+
+export default connect(null, mapDispatchToProps)(NavTop);
