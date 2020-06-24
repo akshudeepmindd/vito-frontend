@@ -10,9 +10,17 @@ export default (props) => {
   return (
     <>
       <MainHead title={props.title} />
-      <SideBar />
-      <AdminNavbar />
-      {props.children}
+      <div className="wrapper">
+        <SideBar />
+        <div
+          className="main-panel"
+          ref="mainPanel"
+          //   data={this.state.backgroundColor}
+        >
+          <AdminNavbar />
+          <div className="content">{props.children}</div>
+        </div>
+      </div>
     </>
   );
 };

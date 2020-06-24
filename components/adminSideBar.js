@@ -1,6 +1,5 @@
 import React from "react";
 import { Nav, NavLink as ReactstrapNavLink } from "reactstrap";
-import "../static/scss/dashboard/black-dashboard-react.scss";
 import Routes from "../routes";
 import AdminLayout from "../components/common/adminLayout";
 var ps;
@@ -77,22 +76,17 @@ class Sidebar extends React.Component {
             {Routes.map((prop, key) => {
               if (prop.redirect) return null;
               return (
-                <li key={key}>
-                  <a href="/admin">
+                <li key={key} style={{ textAlign: "center" }}>
+                  <a href={prop.path}>
                     <i className={prop.icon} />
                     <p>{rtlActive ? prop.rtlName : prop.name}</p>
                   </a>
                 </li>
               );
             })}
-            <li className="active-pro">
-              <ReactstrapNavLink href="https://www.creative-tim.com/product/black-dashboard-pro-react?ref=bdr-user-archive-sidebar-upgrade-pro">
-                <i className="tim-icons icon-spaceship" />
-                <p>Upgrade to PRO</p>
-              </ReactstrapNavLink>
-            </li>
           </Nav>
         </div>
+        {this.props.children}
       </div>
     );
   }

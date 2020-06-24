@@ -1,10 +1,16 @@
 import React from "react";
-import SideBar from "../components/adminSideBar";
 import AdminLayout from "../components/common/adminLayout";
-export default () => {
+import { Card, CardBody, CardHeader } from "reactstrap";
+
+const AdminPage = () => {
   return (
-    <>
-      <AdminLayout title="Admin Dashboard" />
-    </>
+    <AdminLayout>
+      <Card>
+        <CardBody>
+          <h1>Welcome To Dashboad</h1>
+        </CardBody>
+      </Card>
+    </AdminLayout>
   );
 };
+export default AdminPage;

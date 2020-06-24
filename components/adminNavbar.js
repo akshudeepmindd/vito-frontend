@@ -72,7 +72,7 @@ class AdminNavbar extends React.Component {
     return (
       <>
         <Navbar
-          className={classNames("navbar-absolute", this.state.color)}
+          className={classNames("navbar-absolute navbar-admin")}
           expand="lg"
         >
           <Container fluid>
@@ -120,7 +120,7 @@ class AdminNavbar extends React.Component {
                     id="search-button"
                     onClick={this.toggleModalSearch}
                   >
-                    <i className="tim-icons icon-zoom-split" />
+                    <span class="material-icons">search</span>
                     <span className="d-lg-none d-md-block">Search</span>
                   </Button>
                 </InputGroup>
@@ -132,8 +132,7 @@ class AdminNavbar extends React.Component {
                     nav
                   >
                     <div className="notification d-none d-lg-block d-xl-block" />
-                    <i className="tim-icons icon-sound-wave" />
-                    <p className="d-lg-none">Notifications</p>
+                    <span class="material-icons">notification_important</span>
                   </DropdownToggle>
                   <DropdownMenu className="dropdown-navbar" right tag="ul">
                     <NavLink tag="li">
