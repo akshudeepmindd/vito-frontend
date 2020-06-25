@@ -14,7 +14,6 @@ export default (props) => {
         <SideBar />
         <div
           className="main-panel"
-          ref="mainPanel"
           //   data={this.state.backgroundColor}
         >
           <AdminNavbar />

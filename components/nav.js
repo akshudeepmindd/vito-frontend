@@ -3,7 +3,8 @@ import { Navbar, Nav, Button, NavDropdown } from "react-bootstrap";
 import ModalComponent from "../components/modal";
 import { connect } from "react-redux";
 import { modalState } from "../redux/actions/modalActions";
-import { getCookie } from "../utils/cookies";
+import { getCookie, removeCookie } from "../utils/cookies";
+import { Router } from "next/router";
 class NavTop extends Component {
   state = { className: "", showModal: false, formType: "" };
 
@@ -99,7 +100,11 @@ class NavTop extends Component {
                     <Nav.Link className="">
                       <Button
                         variant="warning"
-                        onClick={() => this.props.modalState("signin")}
+                        onClick={() => {
+                          removeCookie("token");
+                          removeCookie("role");
+                          Router.push("/");
+                        }}
                       >
                         Logout
                       </Button>

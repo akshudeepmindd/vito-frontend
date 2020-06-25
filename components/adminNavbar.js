@@ -19,6 +19,8 @@ import {
   Container,
   Modal,
 } from "reactstrap";
+import { removeCookie } from "../utils/cookies";
+import Router from "next/router";
 
 class AdminNavbar extends React.Component {
   constructor(props) {
@@ -188,7 +190,16 @@ class AdminNavbar extends React.Component {
                     </NavLink>
                     <DropdownItem divider tag="li" />
                     <NavLink tag="li">
-                      <DropdownItem className="nav-item">Log out</DropdownItem>
+                      <DropdownItem
+                        className="nav-item"
+                        onClick={() => {
+                          removeCookie("token");
+                          removeCookie("role");
+                          Router.push("/");
+                        }}
+                      >
+                        Log out
+                      </DropdownItem>
                     </NavLink>
                   </DropdownMenu>
                 </UncontrolledDropdown>

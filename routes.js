@@ -15,7 +15,7 @@ var Routes = [
     layout: "/admin",
   },
   {
-    path: "/map",
+    path: "/packages",
     name: "Packages",
     icon: "tim-icons icon-pin",
     // component: Map,
