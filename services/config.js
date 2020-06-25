@@ -1,12 +1,12 @@
 import axios from "axios";
 
 export const client = axios.create({
-  baseURL: "https://vito-backend-nodejs.herokuapp.com/"
+  baseURL: "http://vito-backend-nodejs.herokuapp.com/",
 });
 
 client.interceptors.response.use(
-  response => response,
-  error => {
+  (response) => response,
+  (error) => {
     const { response } = error;
     if (response.data.responseCode === 401) {
       return message;

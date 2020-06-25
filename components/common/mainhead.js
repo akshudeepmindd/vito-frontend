@@ -3,11 +3,12 @@ import NextHead from "next/head";
 import { string } from "prop-types";
 import "react-toastify/dist/ReactToastify.min.css";
 
-
 const Head = (props) => (
   <NextHead>
     <meta charSet="UTF-8" />
-    <title>{props.title || ""} | Academy – http://academy.startupdigitalnetwork.com/</title>
+    <title>
+      {props.title || ""} | Academy – http://academy.startupdigitalnetwork.com/
+    </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -28,6 +29,14 @@ const Head = (props) => (
       href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
     />
     <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    ></link>
+    <link
       rel="stylesheet"
       type="text/css"
       href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
@@ -43,10 +52,8 @@ const Head = (props) => (
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
       type="text/javascript"
     ></script>
-    <script
-      src="https://kit.fontawesome.com/af801ed5a5.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://use.fontawesome.com/052a276510.js"></script>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   </NextHead>
 );
 

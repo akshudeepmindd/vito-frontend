@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Navbar, Nav, Button, NavDropdown } from "react-bootstrap";
 import ModalComponent from "../components/modal";
-import {connect} from 'react-redux'
-import {modalState} from "../redux/actions/modalActions"
-
+import { connect } from "react-redux";
+import { modalState } from "../redux/actions/modalActions";
+import { getCookie, removeCookie } from "../utils/cookies";
+import { Router } from "next/router";
 class NavTop extends Component {
   state = { className: "", showModal: false, formType: "" };
 
@@ -13,10 +14,10 @@ class NavTop extends Component {
 
   handleScroll = () => {
     if (window.pageYOffset > 20) {
-        this.setState({ className: "bgwhite" });
-    } 
-    if (window.pageYOffset <= 0){
-        this.setState({className: "transparent"})
+      this.setState({ className: "bgwhite" });
+    }
+    if (window.pageYOffset <= 0) {
+      this.setState({ className: "transparent" });
     }
   };
 
@@ -28,6 +29,7 @@ class NavTop extends Component {
   };
 
   render() {
+    let token = getCookie("role");
     return (
       <>
         <div className="topnav">
@@ -86,29 +88,52 @@ class NavTop extends Component {
 
                 <Nav.Link href="#pricing">Contact </Nav.Link>
                 <Nav.Link href="/plan">PLans</Nav.Link>
+                {token == "admin" && <Nav.Link href="/admin">Admin</Nav.Link>}
               </Nav>
 
               <Nav>
-                <Nav.Link className="pt-3 right_border" href="">
-                  <i class="fas fa-search"></i>
-                </Nav.Link>
-                <Nav.Link className="">
-                  <Button
-                    variant="warning"
-                    onClick={() => this.props.modalState('signin')}
-                  >
-                    Login
-                  </Button>
-                </Nav.Link>
-                <Nav.Link href="">
-                  
-                  <Button
-                    variant="warning"
-                    onClick={() => this.props.modalState('signup')}
-                  >
-                    Free Trial 
-                  </Button>{" "}
-                </Nav.Link>
+                {token && (
+                  <>
+                    <Nav.Link className="pt-3 right_border" href="">
+                      <i class="fas fa-search"></i>
+                    </Nav.Link>
+                    <Nav.Link className="">
+                      <Button
+                        variant="warning"
+                        onClick={() => {
+                          removeCookie("token");
+                          removeCookie("role");
+                          Router.push("/");
+                        }}
+                      >
+                        Logout
+                      </Button>
+                    </Nav.Link>
+                  </>
+                )}
+                {!token && (
+                  <>
+                    <Nav.Link className="pt-3 right_border" href="">
+                      <i class="fas fa-search"></i>
+                    </Nav.Link>
+                    <Nav.Link className="">
+                      <Button
+                        variant="warning"
+                        onClick={() => this.props.modalState("signin")}
+                      >
+                        Login
+                      </Button>
+                    </Nav.Link>
+                    <Nav.Link href="">
+                      <Button
+                        variant="warning"
+                        onClick={() => this.props.modalState("signup")}
+                      >
+                        Free Trial
+                      </Button>{" "}
+                    </Nav.Link>
+                  </>
+                )}
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -124,8 +149,7 @@ class NavTop extends Component {
 }
 
 const mapDispatchToProps = {
-  modalState
-}
-
+  modalState,
+};
 
 export default connect(null, mapDispatchToProps)(NavTop);
