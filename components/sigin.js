@@ -35,12 +35,11 @@ class SignIn extends Component {
       // const { message: token  } = User
       setCookie("token", User.data.token, { path: "/" });
       setCookie("role", User.data.role, { path: "/" });
-      await toast.success("Login Succfull.");
-      if (User.data.role == "admin") {
-        Router.push("/");
-      } else {
+      await toast.success("Login Successfull.");
         await this.props.modalState(null);
-      }
+        if(User?.data.role === "admin"){
+          Router.push("/admin")
+        }
     }
     toast.error(User.message);
     // await AuthService.storeToken(token, "/dashboard");

@@ -4,7 +4,7 @@ import { Card, CardBody, CardHeader } from "reactstrap";
 
 const AdminPage = () => {
   return (
-    <AdminLayout>
+    <AdminLayout title="Admin Dashboard">
       <Card>
         <CardBody>
           <h1>Welcome To Dashboad</h1>

@@ -27,7 +27,11 @@ class NavTop extends Component {
       formType: type,
     });
   };
-
+  handleLogout = () => {
+    removeCookie("token");
+    removeCookie("role");
+    Router.push("/");
+  }
   render() {
     let token = getCookie("role");
     return (
@@ -100,11 +104,7 @@ class NavTop extends Component {
                     <Nav.Link className="">
                       <Button
                         variant="warning"
-                        onClick={() => {
-                          removeCookie("token");
-                          removeCookie("role");
-                          Router.push("/");
-                        }}
+                        onClick={this.handleLogout}
                       >
                         Logout
                       </Button>
