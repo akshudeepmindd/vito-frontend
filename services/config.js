@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const client = axios.create({
-  baseURL: "http://vito-backend-nodejs.herokuapp.com/",
+  baseURL: "https://vito-backend-nodejs.herokuapp.com/",
 });
 
 client.interceptors.response.use(
